@@ -81,10 +81,10 @@ app.post('/api/notes', (request, response) => {
 
 app.delete('/api/notes/:id', (request, response) => {
   Note.findByIdAndDelete(request.params.id)
-    .then(result => {
+    .then(() => {
       response.status(204).end()
     })
-    .catch(error => next(error))
+    .catch(error => console.log(error))
 })
 
 const PORT = process.env.PORT
