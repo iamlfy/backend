@@ -41,7 +41,7 @@ app.get('/api/notes/:id', (request, response, next) => {
 })
 
 app.put('/api/notes/:id', (request, response, next) => {
-  const [content, important] = request.body
+  const { content, important } = request.body
 
   Note.findById(request.params.id)
     .then(note => {
